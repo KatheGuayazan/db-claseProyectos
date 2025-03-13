@@ -105,28 +105,32 @@ CREATE TABLE IF NOT EXISTS `Lawyer_has_Case` (
 -- -----------------------------------------------------
 -- Inserte en la tabla de casos 3 casos cada uno con un cliente diferente 
 -- -----------------------------------------------------
--- INSERT INTO Case(idCase, name, start_date, finish_date, Case_state_idCase_state, Cliente_idCliente) VALUES ("1", "divorcio", "12/12/12", "10/11/13", "", "1");
--- INSERT INTO Case(idCase, name, start_date, finish_date, Case_state_idCase_state, Cliente_idCliente) VALUES ("2", "robo", "13/10/13", "20/12/13", "", "2");
--- INSERT INTO Case(idCase, name, start_date, finish_date, Case_state_idCase_state, Cliente_idCliente) VALUES ("3", "herencia", "10/5/14", "25/7/14", "", "3");
+-- INSERT INTO abogados.Case(idCase, abogados.Case.name, start_date, finish_date, Case_state_idCase_state, Cliente_idCliente) VALUES ("1", "divorcio", "12/12/12", "10/11/13", "1", "2");
+-- INSERT INTO abogados.Case(idCase, abogados.Case.name, start_date, finish_date, Case_state_idCase_state, Cliente_idCliente) VALUES ("2", "divorcio", "13/10/13", "20/12/13", "2", "1");
+-- INSERT INTO abogados.Case(idCase, abogados.Case.name, start_date, finish_date, Case_state_idCase_state, Cliente_idCliente) VALUES ("3", "herencia", "10/5/14", "25/7/14", "3", "3");
 
--- SELECT * FROM Case
-
--- -----------------------------------------------------
--- Recupere un abogado mediante su cedula  
--- -----------------------------------------------------
--- SELECT * FROM Lawyer WHERE Professional_card = ;
+-- SELECT * FROM abogados.Case;
 
 -- -----------------------------------------------------
--- Recupere todos los casos por un estado de caso 
+-- Recupere un abogado mediante su cedula  ^
 -- -----------------------------------------------------
--- SELECT * FROM Case WHERE Case_state = ;
+-- SELECT * FROM Lawyer WHERE Professional_card = 4321;
 
 -- -----------------------------------------------------
--- Actualice el registro de un caso 
+-- Recupere todos los casos por un estado de caso  ^
 -- -----------------------------------------------------
--- UPDATE Case SET columna_para_actualizar = valor_nuevo WHERE columna = condicion;
+-- SELECT * FROM abogados.Case WHERE Case_state_idCase_state = 1;
 
 -- -----------------------------------------------------
--- Elimine un caso 
+-- Actualice el registro de un caso  ^
+-- -----------------------------------------------------
+-- UPDATE abogados.Case SET finish_date = 10/5/14 WHERE idCase = 1;
+
+-- -----------------------------------------------------
+-- Elimine un caso //El delete solo borra datos y con la condicion de llaves primarias
 -- -----------------------------------------------------
 -- DELETE FROM Case WHERE idCase = 3;
+
+-- -----------------------------------------------------
+-- query recibe sql y valores (sql, args)
+-- module.exports=LACLASE; //es para exportar la clase
